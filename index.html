@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinkering PushState</title>
+</head>
+<body>
+
+    Jolo Compolo!
+
+    <script>
+
+        var MyModule = (function () {
+
+            stateObj = { foo: "bar" };
+            history.pushState(stateObj, "Bar", "bar.html");
+            var stateObj2 = { foo: "bar2" };
+            history.pushState(stateObj2, "Bar2", "bar2.html");
+
+            console.log(stateObj);
+
+            var hello = "Hi!!";
+
+
+            return {
+                publicProperty: hello,
+                publicMethod: function () {
+                    console.log("Public method here!");
+                }
+            }
+
+        }());
+
+        console.log(stateObj);
+        console.log(MyModule.publicProperty);
+        console.log(MyModule.publicMethod());
+
+
+    </script>
+
+</body>
+</html>
